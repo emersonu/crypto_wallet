@@ -1,8 +1,4 @@
 <h1>Seja Bem Vindo <%= @meu_nome %> !</h1>
 <p><strong>Data:</strong> <%=  data_br(Date.today) %> </p>
 <p> <strong>Ambiente:</strong>  <%= ambiente_rails %></p>
-<ul>
-  <li>
-    <%= link_to "Cadastro de Moedas", coins_path %>
-  </li>
-</ul>
+<%= render "menu" %>
