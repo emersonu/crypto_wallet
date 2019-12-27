@@ -3,20 +3,54 @@ namespace :dev do
   task setup: :environment do
     if Rails.env.development?
       show_spinner("Apagando o Banco") { %x(rails db:drop) }
-
       show_spinner("Criando o Banco") { %x(rails db:create) }
-
       show_spinner("Migrando o Banco") { %x(rails db:migrate) }
-
-      show_spinner("Populando o Banco") { %x(rails db:seed) }
-
+      %x(rails dev:add_coins)
+      %x(rails dev:add_mining_types)
     else
       puts "Você não está em ambiente de desenvolvimento! Preste Atenção!!!"
     end
   end
 
-  private
+  desc "Cadastra as moedas"
+  task add_coins: :environment do
+    show_spinner("Cadastrando Moedas") do
+      coins = [
+          {
+              description: "Bitcoin",
+              acronym: "BTC",
+              url_image: "http://www.pngall.com/wp-content/uploads/1/Bitcoin-PNG-Pic.png"},
+          {
+              description: "Etherium",
+              acronym: "ETH",
+              url_image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Ethereum_logo_2014.svg/256px-Ethereum_logo_2014.svg.png"},
+          {
+              description: "Dash",
+              acronym: "DASH",
+              url_image: "https://cdn.freebiesupply.com/logos/large/2x/dash-3-logo-png-transparent.png"}
+      ]
 
+      coins.each do |coin|
+        Coin.find_or_create_by! coin
+      end
+    end
+  end
+
+  desc "Cadastra os tipos de mineração"
+  task add_mining_types: :environment do
+    show_spinner("Cadastrando tipos de mineração") do
+      mining_types = [
+          {name: "Proof of Work", acronym: "PoW" },
+          {name: "Proof of Stake", acronym: "PoS" },
+          {name: "Proof of Capacity", acronym: "PoC" }
+      ]
+      mining_types.each do |mining_type|
+        MiningType.find_or_create_by! mining_type
+      end
+    end
+  end
+
+  private
   def show_spinner(msg_start, msg_end = 'Concluído!')
     spinner = TTY::Spinner.new("[:spinner] #{msg_start} ....")
     spinner.auto_spin
