@@ -15,5 +15,14 @@ module ApplicationHelper
     end
   end
 
+  def locale
+    if I18n.locale == :en
+      "Inglês"
+    elsif I18n.locale == "pt-BR"
+      "Português"
+    end
+
+  end
+
 end
 
