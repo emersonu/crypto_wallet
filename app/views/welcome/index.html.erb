@@ -1,5 +1,5 @@
 <h1>Seja Bem Vindo <%= @meu_nome %> !</h1>
-<p>O idioma usado nessa aplicação é: <strong><%= local(I18n.locale) %></strong></p>
+<p>O idioma usado nessa aplicação é: <strong><%= t('actual_locale') %></strong></p>
 <p><%= I18n.t('hello') %></p>
 <p><strong>Data:</strong> <%=  l(Date.today) %> </p>
 <p> <strong>Ambiente:</strong>  <%= ambiente_rails %></p>
