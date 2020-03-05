@@ -1,6 +1,8 @@
 <h1>Seja Bem Vindo <%= @meu_nome %> !</h1>
 <p>O idioma usado nessa aplicação é: <strong><%= t('actual_locale') %></strong></p>
 <p><%= I18n.t('hello') %></p>
+<p><%= cookies[:curso] %></p>
+<p><%= session[:curso] %></p>
 <p><strong>Data:</strong> <%=  l(Date.today) %> </p>
 <p> <strong>Ambiente:</strong>  <%= ambiente_rails %></p>
 <%= render "menu" %>
