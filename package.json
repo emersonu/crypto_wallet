@@ -2,6 +2,7 @@
   "name": "crypto_wallet",
   "private": true,
   "dependencies": {
+    "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",
     "notify-js-legacy": "^0.4.1",
@@ -11,5 +12,8 @@
   "main": "index.js",
   "repository": "git@github.com:emersonu/crypto_wallet.git",
   "author": "emersonu <emerson.arj@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack-dev-server": "^3.10.3"
+  }
 }
