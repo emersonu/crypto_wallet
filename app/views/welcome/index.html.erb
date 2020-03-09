@@ -1,14 +1,11 @@
-<p>
-  <%= link_to 'Idioma Portugues', '/?locale=pt-BR'%>
-</p>
-<p>
-  <%= link_to 'Idioma Inglês', '/?locale=en'%>
-</p>
-<h1>Seja Bem Vindo <%= @meu_nome %> !</h1>
-<p>O idioma usado nessa aplicação é: <strong><%= t('actual_locale') %></strong></p>
-<p><%= I18n.t('hello') %></p>
-<p><%= cookies[:curso] %></p>
-<p><%= session[:curso] %></p>
-<p><strong>Data:</strong> <%=  l(Date.today) %> </p>
-<p> <strong>Ambiente:</strong>  <%= ambiente_rails %></p>
-<%= render "menu" %>
+
+<div class="jumbotron">
+  <h1 class="display-4">Seja Bem Vindo <%= @meu_nome %>!</h1>
+  <p class="lead">Projeto em Ruby com finalidades de estudo!</p>
+  <hr class="my-4">
+  <p>Escolha entre os itens abaixo:</p>
+  <p class="lead">
+    <%= link_to "Moedas", coins_path, class: 'btn btn-primary btn-lg'%>
+    <%= link_to "Mineração", mining_types_path, class: 'btn btn-primary btn-lg'%>
+  </p>
+</div>

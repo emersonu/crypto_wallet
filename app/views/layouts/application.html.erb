@@ -12,10 +12,22 @@
   </head>
 
   <body>
-  <h1> Cabeçalho </h1>
-    <%= yield %>
-  <h1> Rodape </h1>
-
-  <script>$.notify("Bem Vindo!","success");</script>
+    <div class="container-fluid">
+      <ul class="nav justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link active" href="/?locale=pt-BR">Idioma Português(BR)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/?locale=en">Idioma Inglês</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href=""><strong>Data:</strong> <%=  l(Date.today) %></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href=""><strong>Ambiente:</strong> <%= ambiente_rails %></a>
+        </li>
+      </ul>
+      <%= yield %>
+    </div>
   </body>
 </html>
