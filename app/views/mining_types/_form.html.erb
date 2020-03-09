@@ -4,24 +4,31 @@
       <h2><%= pluralize(mining_type.errors.count, "error") %> prohibited this mining_type from being saved:</h2>
 
       <ul>
-      <% mining_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% mining_type.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description %>
-  </div>
+  <form>
+    <div class="form-group row">
+      <%= form.label :acronym, class:"col-sm-2 col-form-label", for: "acronym"%>
+      <div class="col-sm-1">
+        <%= form.text_field :acronym, class: "form-control", id:"acronym", placeholder: "Sigla"%>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= form.label :description, class:"col-sm-2 col-form-label", for: "description"%>
+      <div class="col-sm-2">
+        <%= form.text_field :description, class: "form-control", id:"description", placeholder: "Descrição"%>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-sm-10">
+       <%= form.submit%>
+      </div>
+    </div>
+  </form>
 
-  <div class="field">
-    <%= form.label :acronym %>
-    <%= form.text_field :acronym %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
